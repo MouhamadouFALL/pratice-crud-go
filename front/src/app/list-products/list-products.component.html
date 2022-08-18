@@ -1,0 +1,39 @@
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Page List of products</h2>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="filter by category" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search Product</button>
+      </form>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | async">
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.id_category}}</td>
+            <td>
+                <button (click)="updateProduct(product.id)" class="btn btn-info">update</button>                
+                <button (click)="productDetails(product.id)" class="btn btn-secondary btn-xs" style="margin-left: 5px">details</button>
+                <button (click)="deleteProduct(product.id)" class="btn btn-danger" style="margin-left: 5px">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

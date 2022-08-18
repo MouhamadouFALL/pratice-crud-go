@@ -1,0 +1,23 @@
+
+<nav class="navbar navbar-light bg-light">
+  <div class="nav nav-tabs container-fluid" id="nav-tab" role="tablist">
+    <button routerLink="products" class="nav-link active " type="button" role="tab" aria-controls="nav-home" aria-selected="true">List Products</button>
+    <button routerLink="add" class="nav-link" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Add Product</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>  
+  <div class="card">
+    <div class="card-body">
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</div>
+
