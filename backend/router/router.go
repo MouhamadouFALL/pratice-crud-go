@@ -1,7 +1,7 @@
 package router
 
 import (
-	"product/middleware"
+	"product/repository"
 
 	"github.com/gorilla/mux"
 )
@@ -11,11 +11,11 @@ func Router() *mux.Router {
 
 	router := mux.NewRouter()
 
-	router.HandleFunc("/api/products/{id}", middleware.GetProduct).Methods("GET", "OPTIONS")
-	router.HandleFunc("/api/products", middleware.GetAllProducts).Methods("GET", "OPTIONS")
-	router.HandleFunc("/api/products", middleware.Create).Methods("POST", "OPTIONS")
-	router.HandleFunc("/api/products/{id}", middleware.UpdateProduct).Methods("PUT", "OPTIONS")
-	router.HandleFunc("/api/products/{id}", middleware.DeleteProduct).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/products/{id}", repository.GetProduct).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/products", repository.GetAllProducts).Methods("GET", "OPTIONS")
+	router.HandleFunc("/api/products", repository.Create).Methods("POST", "OPTIONS")
+	router.HandleFunc("/api/products/{id}", repository.UpdateProduct).Methods("PUT", "OPTIONS")
+	router.HandleFunc("/api/products/{id}", repository.DeleteProduct).Methods("DELETE", "OPTIONS")
 
 	return router
 }
