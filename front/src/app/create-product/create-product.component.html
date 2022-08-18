@@ -1,37 +1,43 @@
-<h3>Create Product</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<div class="row">
+  <div class="card col-md-6 offset-md-3 offset-md-3">
+  <div class="row">
+  <h3>Create Product</h3>
+  <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="name">Name : </label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name">
+      <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name" #name="ngModel">
     </div>
 
     <div class="form-group">
       <label for="name">Price : </label>
-      <input type="text" class="form-control" id="price" required [(ngModel)]="product.price" name="price">
+      <input type="text" class="form-control" id="price" required [(ngModel)]="product.price" name="price" #price="ngModel">
     </div>
 
     <div class="form-group">
       <label for="name">Description : </label>
-      <input type="text" class="form-control" id="description" required [(ngModel)]="product.description" name="description">
+      <input type="text" class="form-control" id="description" required [(ngModel)]="product.description" name="description" #description="ngModel">
     </div>
 
     <div class="form-group">
       <label for="name">Quantity : </label>
-      <input type="text" class="form-control" id="quantity" required [(ngModel)]="product.quantity" name="quantity">
+      <input type="text" class="form-control" id="quantity" required [(ngModel)]="product.quantity" name="quantity" #quantity="ngModel">
     </div>
 
     <div class="form-group">
       <label for="name">Category : </label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="product.id_category" name="category">
+      <input type="text" class="form-control" id="id_category" required [(ngModel)]="product.id_category" name="category" #id_caregory="ngModel">
     </div>
-
+<br>
     <div>
       <button type="submit" class="btn btn-success">Submit</button>
     </div>
-
+<br>
   </form>
+</div>
+</div>
+</div>
 </div>
 
 <div [hidden]="!submitted">

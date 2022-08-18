@@ -1,3 +1,8 @@
+<div class="row">
+<div class="card col-md-6 offset-md-3 offset-md-3">
+<div class="row">
+
+
 <h3>Edit Product</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
@@ -24,12 +29,13 @@
 
     <div class="form-group">
       <label for="name">Category : </label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="product.id_category" name="category">
+      <input type="text" class="form-control" id="category" required [(ngModel)]="product.id_category" name="id_category">
     </div>
     
-    <div class="form-group">
-      <label for="name"></label>
-      <button type="submit" class="btn btn-success">Submit</button>
+    <div>
+      <br>
+        <button type="submit" class="btn btn-success">Submit</button>
+      <br>
     </div>
 
   </form>
@@ -37,4 +43,8 @@
 
 <div [hidden]="!submitted">
   <h4> Successfully!</h4>
+</div>
+
+</div>
+</div>
 </div>

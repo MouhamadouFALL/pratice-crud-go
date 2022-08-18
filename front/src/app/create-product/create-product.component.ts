@@ -27,7 +27,6 @@ export class CreateProductComponent implements OnInit {
     this.productService.createProduct(this.product)
     .subscribe(data => {
       console.log(data)
-      this.product = new Product();
       this.gotoList();
     }, 
     error => console.log(error));

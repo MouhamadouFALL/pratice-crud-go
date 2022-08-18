@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { ProductService } from "../product.service";
 import { Product } from '../product';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ListProductsComponent implements OnInit {
 
-  //products: Observable<Product>;
+  product: Product = new Product();
   products = new Observable<any>();
 
   constructor(private productService: ProductService, 
