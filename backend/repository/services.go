@@ -99,9 +99,10 @@ func GetAllProducts(w http.ResponseWriter, r *http.Request) {
 // UpdateProduct update product's detail in the db
 func UpdateProduct(w http.ResponseWriter, r *http.Request) {
 
-	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "PUT")
+	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	// get the product(id) from the request params, key is "id"

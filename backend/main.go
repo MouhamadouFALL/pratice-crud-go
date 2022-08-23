@@ -10,8 +10,12 @@ func main() {
 
 	r := router.Router()
 
-	log.Println("Server started on: http://localhost:4200")
+	log.Println("Server started on: http://localhost:9595")
 
-	log.Fatal(http.ListenAndServe(":4200", r))
+	//handler := cors.Default().Handler(r)
+
+	//log.Fatal(http.ListenAndServe(":9595", handler))
+
+	log.Fatal(http.ListenAndServe(":9595", r))
 
 }

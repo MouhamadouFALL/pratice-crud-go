@@ -67,7 +67,9 @@
               "browserTarget": "go_crud:build:production"
             },
             "development": {
-              "browserTarget": "go_crud:build:development"
+              "browserTarget": "go_crud:build:development",
+              "proxyConfig": "src/proxy.conf.json"
+              
             }
           },
           "defaultConfiguration": "development"

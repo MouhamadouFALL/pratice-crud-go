@@ -6,10 +6,10 @@ type Category struct {
 }
 
 type Product struct {
-	Id          int    `json:"id"`
+	Id          int64  `json:"id"`
 	Name        string `json:"name"`
-	Price       int    `json:"price"`
+	Price       int64  `json:"price,string"`
 	Description string `json:"description"`
-	Quantity    int    `json:"quantity"`
-	Id_category int    `json:"id_category"`
+	Quantity    int64  `json:"quantity,string"`
+	Id_category int    `json:"id_category,string"`
 }

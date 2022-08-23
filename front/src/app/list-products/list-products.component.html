@@ -1,13 +1,15 @@
 
-
-
 <div class="panel panel-primary">
     <div class="panel-heading">
       <h2>Page List of products</h2>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="filter by category" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search Product</button>
-      </form>
+
+
+      <div class="d-flex">
+        <input class="form-control me-2" [(ngModel)]="idcategory" #areaSearch name="idcategory" type="number" placeholder="filter by category" aria-label="Search">
+        <button class="btn btn-outline-success" (click)="search()">Search Product</button>
+      </div>
+
+
     </div>
     <div class="panel-body">
       <table class="table table-striped">
@@ -21,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products | async">
+          <tr *ngFor="let product of products | async" >
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
@@ -10,28 +10,28 @@ import { Product } from './product';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:4200/api/products';
+  private baseUrl: string = '/api/products';
 
   constructor(private http: HttpClient, private rout: ActivatedRoute) { }
 
-  getProduct(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
   }
 
-  createProduct(product: Product): Observable<Object> {
-    return this.http.post<Product>(`${this.baseUrl}`, product, {observe: 'body', responseType: 'json'});
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${this.baseUrl}`, product);
   }
 
-  updateProduct(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateProduct(id: number, value: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/${id}`, value);
   }
 
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete<any>('http://localhost:4200/api/products' + id);
+    return this.http.delete<any>(`${this.baseUrl}/${id}`);
   }
 
   getProductList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`, {observe: 'body', responseType: 'json'});
+    return this.http.get(`${this.baseUrl}`);
   }
 
 
