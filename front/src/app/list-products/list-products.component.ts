@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { filter, map, Observable } from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { Observable, map } from "rxjs";
 import { ProductService } from "../product.service";
-import { Product } from '../product';
 import { Router } from '@angular/router';
+import { Product } from '../product'
 
 @Component({
   selector: 'app-list-products',
@@ -11,17 +11,11 @@ import { Router } from '@angular/router';
 })
 export class ListProductsComponent implements OnInit {
 
-  //@ViewChild('areaSearch', {static: false}) 
-  //areaSearch: ElementRef = {} as ElementRef;
+  term: any; // filter
 
-  //@Output()
-  //sendSearch: EventEmitter<string> = new EventEmitter();
+  isContain = false
 
-  idcategory: any;
-
-
-  product: Product = new Product();
-  products = new Observable<any>();
+  products = new Observable<Product[]>()
 
   constructor(private productService: ProductService, 
     private router: Router) { }
@@ -31,7 +25,10 @@ export class ListProductsComponent implements OnInit {
   }
 
   reloadData(){
-    this.products = this.productService.getProductList();
+    this.products = this.productService.getProductList()
+    this.products.subscribe(isContain => this.isContain = true)
+
+    console.log(this.products)
   }
 
   deleteProduct(id: number) {
@@ -39,20 +36,26 @@ export class ListProductsComponent implements OnInit {
     this.reloadData();
   }
 
-  updateProduct(id: string) {
+  updateProduct(id: number) {
     this.router.navigate(['edit', id]);
   }
 
-  productDetails(id: string){
+  productDetails(id: number){
     this.router.navigate(['details', id]);
   }
 
   search(){
-    //const data = this.areaSearch.nativeElement.value;
 
-    //return this.products = this.products.pipe(filter(item => item.id_category === data));
-
-    //console.log(this.products = this.products.pipe(filter(pro => pro.id_category === data)));
+    if (!(this.term == '0' || this.term == undefined)) {
+      this.products = this.products.pipe(
+        map(arr => arr.filter(
+          data => data.id_category == this.term
+          )))
+    }
+    else {
+      this.reloadData()
+    }
   }
+
 
 }

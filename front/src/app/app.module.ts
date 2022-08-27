@@ -11,6 +11,8 @@ import { DetailsProductComponent } from './details-product/details-product.compo
 import { ListProductsComponent } from './list-products/list-products.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,14 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     DetailsProductComponent,
     ListProductsComponent,
     UpdateProductComponent,
-    //UpdateProductComponent
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

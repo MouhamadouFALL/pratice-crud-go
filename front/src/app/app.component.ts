@@ -8,5 +8,5 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class AppComponent {
   constructor(private http: HttpClient) {}
-  title = 'Projet manager product with Angular and Golangg';
+  title = 'Projet manager product with Angular and Go(Golang)';
 }
