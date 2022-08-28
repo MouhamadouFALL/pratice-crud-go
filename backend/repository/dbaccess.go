@@ -168,14 +168,6 @@ func updateProduct(id int64, product models.Product) int64 {
 		panic(e.Error())
 	}
 
-	// execute the sql statement
-	//res, e := db.Exec(query, id, product.Name, product.Price, product.Description, product.Quantity, product.Id_category)
-
-	//if e != nil {
-	//	log.Fatalf("Unable to execute the query. %v", e)
-	//}
-
-	// check how many rows affected
 	rowsAffected, e := res.RowsAffected()
 	if e != nil {
 		log.Fatalf("Error while checking the affected rows. %v", e)

@@ -45,8 +45,8 @@ export class ListProductsComponent implements OnInit {
   }
 
   search(){
-
-    if (!(this.term == '0' || this.term == undefined)) {
+    if (!(this.term == 0 || this.term == undefined)) {
+      this.reloadData()
       this.products = this.products.pipe(
         map(arr => arr.filter(
           data => data.id_category == this.term

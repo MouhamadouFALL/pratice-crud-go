@@ -2,24 +2,21 @@
 <h2>Product Details</h2> 
 
 <hr/>
-<div *ngIf="product">
-  <div>
-    <label><b>Name: </b></label> {{product.name}}
-  </div>
-  <div>
-    <label><b>Price: </b></label> {{product.price}}
-  </div>
-  <div>
-    <label><b>Description: </b></label> {{product.description}}
-  </div>
-  <div>
-    <label><b>Quantity: </b></label> {{product.quantity}}
-  </div>
-  <div>
-    <label><b>Category: </b></label> {{product.id_category}}
-  </div> 
-</div>
 
-<br>
-<br>
-<button (click)="list()" class="btn btn-info">Back to Products List</button><br>
+<div class="col" *ngIf="product">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Prix : {{product.price}}</li>
+      <li class="list-group-item">Quantité : {{product.quantity}}</li>
+      <li class="list-group-item">Categorie : {{product.id_category}}</li>
+    </ul>
+    <div class="card-body">
+      <a (click)="list()" class="btn btn-outline-primary card-link">Back to Products List</a>
+      <!--<a href="#" class="card-link">Another link</a>-->
+    </div>
+  </div>
+</div>

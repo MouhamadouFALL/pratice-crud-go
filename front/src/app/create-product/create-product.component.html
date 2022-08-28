@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <label for="name">Price : </label>
-      <input type="text" class="form-control" id="price" required [(ngModel)]="product.price" name="price" #price="ngModel">
+      <input type="number" class="form-control" id="price" required [(ngModel)]="product.price" name="price" #price="ngModel">
     </div>
 
     <div class="form-group">
@@ -22,16 +22,16 @@
 
     <div class="form-group">
       <label for="name">Quantity : </label>
-      <input type="text" class="form-control" id="quantity" required [(ngModel)]="product.quantity" name="quantity" #quantity="ngModel">
+      <input type="number" class="form-control" id="quantity" required [(ngModel)]="product.quantity" name="quantity" #quantity="ngModel">
     </div>
 
     <div class="form-group">
       <label for="name">Category : </label>
-      <input type="text" class="form-control" id="id_category" required [(ngModel)]="product.id_category" name="category" #id_caregory="ngModel">
+      <input type="number" class="form-control" id="id_category" required [(ngModel)]="product.id_category" name="category" #id_caregory="ngModel">
     </div>
 <br>
     <div>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-ontline-primary">Add</button>
     </div>
 <br>
   </form>

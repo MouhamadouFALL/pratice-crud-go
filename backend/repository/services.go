@@ -102,7 +102,6 @@ func UpdateProduct(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "PUT")
 	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
-	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	// get the product(id) from the request params, key is "id"
@@ -144,6 +143,7 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Context-Type", "application/x-www-form-urlencoded")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Methods", "DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
@@ -160,7 +160,7 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	deletedRows := deleteProduct(int64(id))
 
 	// format the message string
-	msg := fmt.Sprintf("User updated successfully. Total rows/record affected %v", deletedRows)
+	msg := fmt.Sprintf("Product delete successfully. Total rows/record affected %v", deletedRows)
 
 	// format the reponse message
 	res := response{

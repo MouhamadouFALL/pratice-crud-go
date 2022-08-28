@@ -1,7 +1,7 @@
 package models
 
 type Category struct {
-	Id      int    `json:"id"`
+	Id      int64  `json:"id"`
 	Libelle string `json:"libelle"`
 }
 
@@ -11,5 +11,5 @@ type Product struct {
 	Price       int64  `json:"price,string"`
 	Description string `json:"description"`
 	Quantity    int64  `json:"quantity,string"`
-	Id_category int    `json:"id_category,string"`
+	Id_category int64  `json:"id_category,string"`
 }

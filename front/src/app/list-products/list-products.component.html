@@ -11,7 +11,7 @@
     <div *ngIf="isContain; else listProducts" ng-init="products">
 
       <div class="d-flex">
-        <input class="form-control me-2" type="text" [(ngModel)]="term" placeholder="filter by category">
+        <input class="form-control me-2" type="number" [(ngModel)]="term" placeholder="filter by category">
         <button class="btn btn-outline-success" (click)="search()">Search Product</button>
       </div>
     
