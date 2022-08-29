@@ -50,7 +50,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	//	Message: "Product created successfully",
 	//}
 	// send the response
-	//json.NewEncoder(w).Encode(product)
+	//json.NewEncoder(w).Encode(res)
 
 }
 
