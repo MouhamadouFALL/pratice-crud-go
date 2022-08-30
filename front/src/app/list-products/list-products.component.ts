@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, map } from "rxjs";
 import { ProductService } from "../product.service";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product'
 
 @Component({
@@ -13,12 +13,14 @@ export class ListProductsComponent implements OnInit {
 
   term: any; // filter
 
+  id: number = 0
+
   isContain = false
 
   products = new Observable<Product[]>()
 
   constructor(private productService: ProductService, 
-    private router: Router) { }
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -32,7 +34,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
-    this.productService.deleteProduct(id);
+    this.productService.deleteProduct(id).subscribe();
     this.reloadData();
   }
 

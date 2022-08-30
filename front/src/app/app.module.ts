@@ -12,7 +12,7 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { FilterPipe } from './filter.pipe';
     DetailsProductComponent,
     ListProductsComponent,
     UpdateProductComponent,
-    FilterPipe,
   ],
   imports: [
     BrowserModule,

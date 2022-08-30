@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { Product } from './product';
 
 @Injectable({
@@ -25,8 +25,9 @@ export class ProductService {
     return this.http.put<Product>(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteProduct(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.baseUrl}/${id}`, { headers: this.headers });
+  deleteProduct(id: number): Observable<Product>{
+    let url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Product>(url, { headers: this.headers });
   }
 
   getProductList(): Observable<Product[]> {
