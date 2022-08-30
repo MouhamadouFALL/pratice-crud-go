@@ -77,8 +77,20 @@ func GetProduct(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("Unable to get user. %v", e)
 	}
 
-	// send the response
-	json.NewEncoder(w).Encode(product)
+	if product.Id == 0 {
+		// format the message string
+		msg := fmt.Sprintln("Product is not found !")
+		// format the response message
+		res := response{
+			ID:      int64(id),
+			Message: msg,
+		}
+		// send the response
+		json.NewEncoder(w).Encode(res)
+	} else {
+		// send the response
+		json.NewEncoder(w).Encode(product)
+	}
 }
 
 // GetAllUser will return all the products
